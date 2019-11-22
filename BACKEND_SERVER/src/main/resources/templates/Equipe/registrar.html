@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+
+    <!-- JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/table.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/kaiser_navbar.css"  media="screen,projection"/>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h1>Login</h1>
+
+<!-- /login?error=true -->
+<div th:if="${#request.getParameter('error') == 'true'}"
+     style="color:red;margin:10px 0px;">
+    Login Failed!!!<br />
+    Reason :
+    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+         </span>
+
+</div>
+
+<form id="form" modelAttribute='usuario' method='POST'>
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td><input type='text' name='nome' value=''></td>
+        </tr>
+        <tr>
+            <td>Projeto</td>
+            SELECT OPTION
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+<!-- Result Container  -->
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/jspanel.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/jspanel.js"></script>
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.6.0/dist/extensions/dock/jspanel.dock.js"></script>
+
+<script>
+    /*
+    jsPanel.create({
+        theme:       'primary',
+        headerTitle: 'Json response from Server',
+        position:    'center-top 0 58',
+        contentSize: '450 250',
+        content:     '<div id="resultContainer" style="font-size:20px;"><pre style="color: green;"><code></code></pre></div>',
+        callback: function () {
+            this.content.style.padding = '20px';
+        },
+        onbeforeclose: function () {
+            return confirm('Do you really want to close the panel?');
+        }
+    });*/
+
+    $(function() {
+    $('#form').submit(function(event) {
+        event.preventDefault();
+        var userForm = $('#form').serializeArray();
+        var userJson = {};
+
+         $.map(userForm, function(n, i){
+             if(userJson[n['name']]){
+                 var valueArray = [userJson[n['name']]];
+                 userJson[n['name']] = valueArray.concat(n['value']);
+             } else { userJson[n['name']] = n['value'];}
+         });
+        $.ajax({
+            type: "POST",
+            url: "/usuario/salvar/",
+            data: JSON.stringify(userJson),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){
+                //Limpando container
+                //$('#resultContainer pre code').innerHtml('');
+                for(var item in data) {
+                   $('#resultContainer pre code').append("<br>"+item+":"+data[item])
+                }
+            },
+            failure: function(errMsg) {
+               alert(errMsg);//handle it in a proper way
+            }
+        });
+        return false;
+    });
+});
+</script>
+
+</html>

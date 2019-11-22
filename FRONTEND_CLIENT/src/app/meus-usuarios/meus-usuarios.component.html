@@ -1,0 +1,7 @@
+<app-usuario-list (usuario)="go($event)" [usuarios]="usuarios"></app-usuario-list>
+<mat-paginator [length]="length"
+               [pageIndex]="index"
+               [pageSize]="size"
+               [pageSizeOptions]="options"
+               (page)="getData($event)">
+</mat-paginator>

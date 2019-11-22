@@ -1,0 +1,7 @@
+<app-post-list (post)="go($event)" [projeto]='projeto' [posts]="posts"></app-post-list>
+<mat-paginator [length]="length"
+               [pageIndex]="index"
+               [pageSize]="size"
+               [pageSizeOptions]="options"
+               (page)="getData($event)">
+</mat-paginator>

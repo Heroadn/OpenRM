@@ -1,0 +1,7 @@
+<app-equipe-list (equipe)="go($event)" [equipes]="equipes"></app-equipe-list>
+<mat-paginator [length]="length"
+               [pageIndex]="index"
+               [pageSize]="size"
+               [pageSizeOptions]="options"
+               (page)="getData($event)">
+</mat-paginator>

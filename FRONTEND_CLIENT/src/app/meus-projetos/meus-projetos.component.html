@@ -1,0 +1,13 @@
+<mat-card>
+    <app-projeto-list (projeto)="go($event)" [projetos]="projetos"></app-projeto-list>
+
+    <div>
+        <button style="transform:translate(5px,55px)" mat-fab color="primary" [routerLink]="['/projeto-add']">Add</button>
+        <mat-paginator [length]="length"
+                    [pageIndex]="index"
+                    [pageSize]="size"
+                    [pageSizeOptions]="options"
+                    (page)="getData($event)">
+        </mat-paginator>
+    </div>
+</mat-card>

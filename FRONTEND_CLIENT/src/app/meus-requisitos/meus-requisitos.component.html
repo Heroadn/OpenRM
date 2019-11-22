@@ -1,0 +1,7 @@
+<app-requisito-list (requisito)="go($event)" [requisitos]="requisitos"></app-requisito-list>
+<mat-paginator [length]="length"
+               [pageIndex]="index"
+               [pageSize]="size"
+               [pageSizeOptions]="options"
+               (page)="getData($event)">
+</mat-paginator>

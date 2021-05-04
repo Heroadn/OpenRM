@@ -1,2 +1,24 @@
-# OpenRM
-A opensource requisite manager
+# 
+
+**OpenRM**
+
+    O presente projeto de tem por objetivo o desenvolvimento de uma plataforma de gerenciamento de requisitos
+    
+**Configurações e recomendações do projeto:**
+>*   Utilizar um servidor local, no projeto é utilizado o Servidor "Java".
+>*   Utilizar um banco de dados, no projeto é utilizado o MySQL 5.7 junto com o PhpMyAdmin.
+>*   Utilizar ferramenta para versionamento, no projeto é utilizado GIT.
+>*   Utilizar o gerenciador de pacotes do Node(npm) para ter controle das dependências do projeto.
+>*   Utilizar um ambiente de trabalho para desenvolvimento, no projeto é utilizado o VSCode
+
+**Dependências do projeto:**
+*   Nome
+    [Link](https://)
+
+
+
+**Funcionalidades do projeto:**
+*       Cadastro de usuário:
+                Descrição:
+                Composição:
+                

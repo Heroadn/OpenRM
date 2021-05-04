@@ -19,6 +19,6 @@
 
 **Funcionalidades do projeto:**
 *       Cadastro de usuário:
-                Descrição:
-                Composição:
+                Descrição: o cadastro é feito atraves de um formulario onde deve ser informado nome, email e senha
+                Composição: apos a validação é enviado um email para ativação
                 

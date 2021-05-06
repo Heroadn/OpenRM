@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>Lista de Requisito</mat-card-title>
+    <mat-card-content>
+        <mat-list>
+        <mat-list-item *ngFor="let requisito of requisitos">
+            <img mat-list-avatar src="{{requisito.giphyUrl}}" alt="{{requisito.nome}}">
+            <h3 mat-line>
+            <a mat-button (click)="selectRequisito(requisito)">{{requisito.nome}}</a>
+            <a mat-button>
+                <mat-icon *ngIf="requisito.concluido == 0">time</mat-icon>
+                <mat-icon *ngIf="requisito.concluido == 1">done</mat-icon>
+            </a>
+            </h3>
+        </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/requisito-add']">Add</button>
+</mat-card>

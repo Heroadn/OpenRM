@@ -1,0 +1,5 @@
+<alert *ngIf="!usuario.nome" [type]="'success'" [dismissible]="dismissible"><span>Seja Bem vindo</span></alert>
+
+<a *ngIf="!usuario.nome" class="nav-item nav-link"></a>
+<button *ngIf="!usuario.nome" type="button" [routerLink]="['/usuario-add']" class="btn btn-dark">Cadastrar</button>
+<app-meus-projetos *ngIf="usuario.nome != null"></app-meus-projetos>

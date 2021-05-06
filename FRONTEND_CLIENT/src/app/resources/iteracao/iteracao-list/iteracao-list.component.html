@@ -1,0 +1,33 @@
+<!--sh-context-menu #menu>
+    <ng-template shContextMenuItem let-data (click)="onClick($event)">
+      <div>
+        Menu Item - {{//data.//label}}
+      </div>
+    </ng-template>
+  </sh-context-menu>
+  <div [shAttachMenu]="menu" [shMenuData]="data">Right Click Me</div>-->
+
+<div class="box-items"> 
+<h3><code style="color:black !important">Iterações</code></h3>
+    <div class="column__list" >
+        <div class="column__item" *ngFor="let iteracao of iteracoes">
+            <div class="column__title--wrapper">
+                <h2>{{iteracao.nome}}</h2>
+            </div>
+
+            <div class="column__item" dragula="ITERACOES">
+                <div class="card__list" id="REQ_{{iteracao.id}}">
+                    <div class="card__item" *ngFor="let requisito of iteracao.requisitos">
+                        <span class="tag card__tag--browser">Requisito</span>
+                        <h6 class="card__title">{{requisito.nome}}</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column__item--cta text-center">
+                <button mat-fab color="primary" (click)="addRequisito(iteracao)"><mat-icon>add</mat-icon></button> 
+            </div>
+        </div>
+    </div>
+</div>
+

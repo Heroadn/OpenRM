@@ -1,0 +1,33 @@
+<mat-card>
+    <form #postForm="ngForm" (ngSubmit)="save(postForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{post.titulo ? 'Edit' : 'Add'}} post</h2></mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <input type="hidden" name="href" [(ngModel)]="post.href">
+
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Titulo" [(ngModel)]="post.titulo"
+                  required name="titulo" #titulo>
+          </mat-form-field>
+        </p>
+
+        <app-ngx-editor name="texto" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="post.texto"></app-ngx-editor>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!postForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(post.href)"
+                *ngIf="post.href" type="button">Delete</button>
+        <a mat-button routerLink="/post-list/projeto.ID">Cancel</a>
+      </mat-card-actions>
+
+      <mat-card-footer>
+        <!-- Previa minituarizada -->
+      </mat-card-footer>
+
+    </form>
+</mat-card>

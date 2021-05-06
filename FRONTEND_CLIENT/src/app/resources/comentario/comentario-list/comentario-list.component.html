@@ -1,0 +1,9 @@
+<div>
+  <div *ngFor="let comentario of comentarios">
+    <h3>
+      <img class="avatar" alt="{{comentario.usuario.nome}}" src="{{comentario.usuario.giphyUrl}}">
+      <a mat-button (click)="selectComentario(comentario)">{{comentario.texto}}</a>
+    </h3>
+  </div>
+</div>
+

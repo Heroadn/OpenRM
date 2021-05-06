@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" [routerLink]="['/home']">NGXRM</a>
+    <div class="navbar-expand mr-auto">
+        <div class="navbar-nav">
+            <a [routerLink]="['/projeto-list']" class="nav-item nav-link">  Projetos</a>
+            <!--<a [routerLink]="['/equipe-list']"    class="nav-item nav-link">Equipes</a>-->
+            <!--<a [routerLink]="['/requisito-list']" class="nav-item nav-link">Requisitos</a>-->
+        </div>
+    </div>
+    
+    <div class="navbar-expand ml-auto navbar-nav">
+        <div class="navbar-nav">
+            <!--
+            <img class="avatar" *ngIf="imagem != null" (click)="options()" src="{{//imagem}}">-->
+            <a *ngIf="!usuario" class="nav-item nav-link" [routerLink]="['/usuario-login']">
+                <button type="button" class="btn btn-outline-dark">Login</button>
+            </a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Lista de Usuarios</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let usuario of usuarios">
+        <img mat-list-avatar src="{{usuario.giphyUrl}}" alt="{{usuario.nome}}">
+        <h3 mat-line>
+          <a mat-button (click)="selectUsuario(usuario)">{{usuario.nome}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <!--<a mat-button [routerLink]="['/usuario-edit', usuario.id]">{{//usuario.//nome}}</a>-->
+  <!--
+  <button mat-fab color="primary" [routerLink]="['/usuario-add']">Add</button>
+  -->
+</mat-card>

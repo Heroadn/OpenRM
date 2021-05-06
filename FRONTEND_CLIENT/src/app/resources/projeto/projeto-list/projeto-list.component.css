@@ -1,0 +1,43 @@
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-size: cover;
+}
+
+#objetivo{
+    padding-top:   20px;
+    padding-right: 20px;
+    width:30em;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+mat-card{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+mat-card:hover{
+    transition: opacity 0.7s 0.01s cubic-bezier(0.19, 1, 0.22, 1)
+}
+
+mat-button-wrapper{
+    color:white;
+}
+
+mat-paginator-icon{
+    color:white;
+}
+
+a:hover{
+    background-color: rgba(185, 180, 180, 0.5);
+}
+
+.masonry-item { width: 200px;min-height: 400px;}

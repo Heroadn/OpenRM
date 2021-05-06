@@ -1,0 +1,28 @@
+<h3>Projetos</h3>
+<ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '1.0s' }">
+        <div ngxMasonryItem class="masonry-item" *ngFor="let projeto of projetos">
+            <mat-card>    
+                <mat-card-content (click)="selectProjeto(projeto)">
+                    <h1><img class="avatar" src="{{projeto.giphyUrl}}" alt="{{projeto.nome}}">
+                        <a mat-button (click)="selectProjeto(projeto)">{{projeto.nome}}</a>
+                    </h1>
+                    <p [innerHtml]='projeto.objetivo'></p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+</ngx-masonry>
+
+
+<!--<h3>Projetos</h3>
+<ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '1.0s' }">
+        <div ngxMasonryItem class="masonry-item" *ngFor="let projeto of projetos">
+            <mat-card>    
+                <mat-card-content (click)="selectProjeto(projeto)">
+                    <h1><img class="avatar" src="{{//projeto.//giphyUrl}}" alt="{{//projeto.//nome}}">
+                        <a mat-button (click)="selectProjeto(projeto)">{{//projeto.//nome}}</a>
+                    </h1>
+                    <p [innerHtml]='projeto.objetivo'></p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+</ngx-masonry>-->

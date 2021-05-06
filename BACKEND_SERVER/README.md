@@ -7,6 +7,3 @@ This project is using [Spring Boot](https://spring.io/projects/spring-boot).
 
 First you need to run the 'Maven install' to create the jpamodels
 
-
-## Running unit tests
-

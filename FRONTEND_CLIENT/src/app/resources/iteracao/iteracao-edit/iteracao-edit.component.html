@@ -1,0 +1,48 @@
+<form #iteracaoForm="ngForm" (ngSubmit)="save(iteracaoForm.value)">
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title>
+            <h2>{{iteracao.nome ? 'Editar' : 'Adicionar'}} Iteração</h2><!-- <img mat-card-avatar src="{{//iteracao.//giphyUrl}}" alt="{{//iteracao.//nome}}">-->
+        </mat-card-title>
+        </mat-card-header>
+        
+        <!-- Conteudo-->
+        <mat-card-content>
+            <input type="hidden" [(ngModel)]="iteracao.href" name="href" >
+            <p>
+            <mat-form-field>
+                <input matInput placeholder="nome" [(ngModel)]="iteracao.nome"
+                    required name="nome" #nome>
+            </mat-form-field>
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!iteracaoForm.form.valid">Save</button>
+            <button mat-raised-button color="secondary" (click)="remove(iteracao.href)"
+                    *ngIf="iteracao.href" type="button">Delete</button>
+            <a mat-button routerLink="/iteracao-list">Cancel</a>
+        </mat-card-actions>
+        
+    </mat-card>
+
+    <mat-card *ngIf="iteracao.requisitos">
+        <mat-divider></mat-divider>
+        <mat-card-header>
+        <mat-card-title><h2>Requisitos</h2></mat-card-title>
+        </mat-card-header>
+        
+        <!-- Conteudo-->
+        <mat-card-content>
+            <p>
+                <mat-list-item *ngFor="let requisito of iteracao.requisitos">
+                    <h3 mat-line>
+                        <a mat-button [routerLink]="['/requisito-edit', requisito.id_requisito]"><img mat-card-avatar src="{{requisito.giphyUrl}}" alt="{{requisito.nome}}"> {{requisito.nome}}</a>
+                    </h3>
+                </mat-list-item>
+                <button mat-raised-button color="secondary" *ngIf="iteracao.requisitos != null" (click)="addRequisito(iteracao)" type="button">Adicionar</button>
+            </p>
+        </mat-card-content>
+    </mat-card>
+</form>

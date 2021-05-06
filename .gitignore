@@ -21,3 +21,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+FRONTEND_CLIENT/src/assets/75402168_2373648672857539_7409292883133464576_n.jpg
+.gitignore
+FRONTEND_CLIENT/src/assets/s-l1000.jpg
+FRONTEND_CLIENT/src/assets/florest.jpg
+BACKEND_SERVER/rm.iml
+.gitignore
+BACKEND_SERVER/.idea/encodings.xml
+BACKEND_SERVER/.idea/misc.xml
+BACKEND_SERVER/.idea/modules.xml
+BACKEND_SERVER/.idea/jarRepositories.xml
+BACKEND_SERVER/.idea/compiler.xml

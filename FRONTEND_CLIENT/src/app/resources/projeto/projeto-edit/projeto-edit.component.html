@@ -1,0 +1,60 @@
+<form #projetoForm="ngForm" (ngSubmit)="save(projetoForm.value)">
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title>
+            <h2>{{projeto.nome ? 'Editar' : 'Adicionar'}} Projeto</h2><!-- <img mat-card-avatar src="{{//projeto.//giphyUrl}}" alt="{{//projeto.//nome}}">-->
+        </mat-card-title>
+        </mat-card-header>
+        
+        <!-- Conteudo-->
+        <mat-card-content>
+            <input type="hidden" [(ngModel)]="projeto.href" name="href" >
+            
+            <p *ngIf="projeto.ID">
+                <mat-radio-group required [(ngModel)]="projeto.visivel" name="visivel">
+                    <mat-radio-button [value] = "0">Publico</mat-radio-button>
+                    <mat-radio-button [value] = "1">Privado</mat-radio-button>
+                </mat-radio-group>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Nome" [(ngModel)]="projeto.nome"
+                        required name="nome" cnome>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input required id="input-picker" matInput [matDatepicker] = "picker" placeholder = "Escolha uma data" [(ngModel)]="projeto.data_conclusao" name="data_conclusao" #data_conclusao>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <!--
+                <mat-form-field>
+                    <input required matInput [min]="min" [owlDateTime]="data_conclusao" [(ngModel)]="projeto.data_conclusao" name="data_conclusao" placeholder="Conclusão do Projeto" #data_conclusao>
+                    <owl-date-time #data_conclusao></owl-date-time>
+                </mat-form-field>
+                <span [owlDateTimeTrigger]="data_conclusao"><mat-icon  matSuffix>calendar_today</mat-icon></span>-->
+            </p>
+    
+            <p> 
+                <mat-label>Objetivo</mat-label>
+                <app-ngx-editor required name="objetivo" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="projeto.objetivo"></app-ngx-editor>
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!projetoForm.form.valid">Save</button>
+            <button mat-raised-button color="secondary" (click)="remove(projeto.href)"
+                    *ngIf="projeto.href" type="button">Delete</button>
+            <a mat-button routerLink="/projeto-list">Cancel</a>
+
+            <a mat-button [routerLink]="['/post-list',     projeto.ID]"><mat-icon>book</mat-icon></a>
+            <a mat-button [routerLink]="['/iteracao-list', projeto.ID]"><mat-icon>build</mat-icon></a>
+        </mat-card-actions>
+    </mat-card>
+    <br>
+</form>

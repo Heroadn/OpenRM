@@ -1,0 +1,26 @@
+.data{
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
+
+mat-datepicker-toggle{
+    font-size:2.3em;   
+}
+
+mat-radio-button{
+    margin-right:1.2em;
+}
+
+#objetivo{
+    padding-top:   20px;
+    padding-right: 20px;
+    width:30em;
+}
+
+a:hover{
+    background-color: rgba(185, 180, 180, 0.5);
+}
+
+textarea{
+    background-color:#F2F2F2
+}

@@ -1,0 +1,85 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #FFFF;}
+
+.fa-github {
+  color: white;
+}
+
+.bg-dark {
+  background-color: #F2F2F2 !important;
+  
+}
+
+.navbar-dark .navbar-brand {
+  color:black !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: gray !important;
+}
+
+.mat-paginator-container {
+  background-color: rgba(255,255,255,0.1) !important;
+}
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+  background-color: rgba(255,255,255,0.1) !important;
+}
+
+mat-card{
+  background-color: rgba(242,242,242,0.7) !important;
+}
+
+.glueTogether{
+  transform:translate(5px,55px)
+}
+
+.mb-5, .my-5 {
+  margin-bottom: 2rem !important;
+}
+/*
+.mat-paginator-container {
+  background-color: #212;
+  color: rgba(242,235,141,.95);
+}
+
+.mat-select-value {
+  color: rgba(255,255,255,.87);
+}
+
+.mat-select-arrow {
+  color: rgba(255,255,255,.87);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(255,255,255,.87);
+}*/
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ngx-contextmenu.cdk-overlay-pane {
+  position: absolute;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.target {
+  user-select: none;
+}

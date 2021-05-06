@@ -1,0 +1,27 @@
+<alert *ngIf="(hours | async) < 0" [type]="'warning'" [dismissible]="dismissible"><span>Prazo para conclusão expirado</span></alert>
+<mat-card>    
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <app-hexagon [width]="300" [image]="projeto.giphyUrl"></app-hexagon>
+                </div>
+
+                <div class="col-md-7 col-sm-12" style="margin-top : 4.5em;">
+                    <span class="title">{{projeto.nome}}</span>
+                </div>
+                
+                <div class="col-md-2 col-sm-12">
+                    <a class="gear" mat-button [routerLink]="['/projeto-edit', projeto.ID]"><fa size="2x" name="cog"></fa></a>
+                </div>  
+            </div>
+
+            <owl-timer *ngIf="days | async" [timerDays]="days | async" [timerHours]="hours | async" [timerMinutes]="minutes | async" [timerSeconds]="seconds | async"></owl-timer>
+            <p [innerHtml]='projeto.objetivo'></p>
+        </mat-card-content>
+</mat-card>
+
+<app-meus-iteracoes [id_projeto]="projeto.ID"></app-meus-iteracoes>
+<br>
+<br>
+
+

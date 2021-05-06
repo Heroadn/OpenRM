@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Lista de Equipe</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let equipe of equipes">
+        <img mat-list-avatar src="{{equipe.giphyUrl}}" alt="{{equipe.nome}}">
+        <h3 mat-line>
+            <a mat-button (click)="selectEquipe(equipe)">{{equipe.nome}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-fab color="primary" [routerLink]="['/equipe-add']">Add</button>
+</mat-card>

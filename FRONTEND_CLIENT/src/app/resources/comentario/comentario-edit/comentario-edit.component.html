@@ -1,0 +1,7 @@
+<form #comentarioForm="ngForm" (ngSubmit)="save(comentarioForm.value)">
+    <mat-form-field>
+        <input type="hidden" name="href" [(ngModel)]="comentario.href">
+        <input matInput value="" placeholder="Comentario..." [(ngModel)]="comentario.texto" required name="texto" #texto>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!comentarioForm.form.valid"><mat-icon>send</mat-icon></button>
+</form>

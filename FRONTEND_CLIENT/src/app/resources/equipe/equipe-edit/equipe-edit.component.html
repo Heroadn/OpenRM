@@ -1,0 +1,47 @@
+<form #equipeForm="ngForm" (ngSubmit)="save(equipeForm.value)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title><h2>{{equipe.nome ? 'Edit' : 'Add'}} Equipe</h2></mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="equipe.href">
+            <input type="hidden" name="id_projeto" [(ngModel)]="equipe.ID">
+            
+            <p>
+            <mat-form-field>
+                <input matInput placeholder="nome" [(ngModel)]="equipe.nome"
+                    required name="nome" #nome>
+            </mat-form-field>
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!equipeForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(equipe.href)"
+                *ngIf="equipe.href" type="button">Delete</button>
+        <a mat-button routerLink="/equipe-list">Cancel</a>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card *ngIf="equipe.membros">
+        <mat-divider></mat-divider>
+        <mat-card-header>
+        <mat-card-title><h2>Membros</h2></mat-card-title>
+        </mat-card-header>
+        
+        <!-- Conteudo-->
+        <mat-card-content>
+            <p>
+                <mat-list-item *ngFor="let membro of equipe.membros">
+                    <h3 mat-line>
+                        <a mat-button [routerLink]="['/equipe-edit', equipe.ID]"><img mat-card-avatar src="{{membro.giphyUrl}}" alt="{{membro.nome}}"> {{membro.nome}}</a>
+                    </h3>
+                </mat-list-item>
+                <button mat-raised-button color="secondary" *ngIf="equipe.membros != null" (click)="addUsuario(equipe)" type="button">Adicionar</button>
+            </p>
+        </mat-card-content>
+    </mat-card>    
+</form>
+

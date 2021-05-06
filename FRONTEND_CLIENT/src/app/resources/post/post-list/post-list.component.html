@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Postagens</mat-card-title>
+
+    <mat-card-content>
+      <div>
+        <div *ngFor="let post of posts">
+          <h3 mat-line>
+            <img class="avatar" alt="{{post.usuario.nome}}" src="{{post.usuario.giphyUrl}}">
+            <a mat-button (click)="selectPost(post)">{{post.titulo}}</a>
+          </h3>
+          <p class="subhead" [innerHTML]="post.texto"></p>
+          
+          <h4>Comentarios</h4>
+          <app-comentario-list [comentarios] = "pageOfItems"></app-comentario-list>
+          <app-comentario-edit (comentario)  = "get($event,post);" [post]="post"></app-comentario-edit>
+          
+          <div class="card-footer pb-0 pt-3">
+            <jw-pagination [items]="post.comentarios" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/post-add',projeto.ID]">Add</button>
+</mat-card>

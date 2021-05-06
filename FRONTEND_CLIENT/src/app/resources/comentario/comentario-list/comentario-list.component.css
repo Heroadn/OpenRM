@@ -1,0 +1,14 @@
+.avatar {
+  vertical-align: middle;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+a:hover {
+  background-color: rgb(0,0,0,0) !important;
+}
+
+h3{
+  font-weight: 0.2em;
+}

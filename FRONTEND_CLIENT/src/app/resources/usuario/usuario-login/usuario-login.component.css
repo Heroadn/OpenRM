@@ -1,0 +1,27 @@
+mat-card{
+  background-color:#F2F2F2;  
+}
+
+mat-form-field {
+  width: 25.2em;
+}
+
+mat-raised-button{
+  background-color:#000000;
+}
+
+.center{
+    width: 75%;
+    margin: 10px auto;
+  }
+  
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue{
+  color:#4D46E8;
+}

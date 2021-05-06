@@ -1,0 +1,25 @@
+span{
+    color:#311432;
+}
+
+.div-border{
+    /*border-bottom: 1px solid #ff2e88;*/
+    text-decoration: none;
+    color: #2D2540;
+}
+
+.btn{min-width:150px;min-height:50px;}
+
+.block {
+    /*cursor: pointer;
+    color: #ff2e88;
+    border-bottom: 1px solid #ff2e88;*/
+    text-decoration: none;
+    background-color: #fff;
+    width:53.5em;
+    height:3.2em;
+}
+
+mat-card{
+    background-color: rgba(242,242,242,0.7);
+}

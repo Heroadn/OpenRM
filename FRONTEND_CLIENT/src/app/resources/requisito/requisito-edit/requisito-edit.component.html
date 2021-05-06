@@ -1,0 +1,50 @@
+<form #requisitoForm="ngForm" (ngSubmit)="save(requisitoForm.value)">
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title>
+            <h2>{{requisito.nome ? 'Editar' : 'Adicionar'}} Requisito</h2><!-- <img mat-card-avatar src="{{//requisito.//giphyUrl}}" alt="{{//requisito.//nome}}">-->
+        </mat-card-title>
+        </mat-card-header>
+        
+        <!-- Conteudo-->
+        <mat-card-content>
+            <input type="hidden" [(ngModel)]="requisito.href" name="href" >
+            
+            <p>
+            <mat-form-field>
+                <input matInput placeholder="nome" [(ngModel)]="requisito.nome"
+                    required name="nome" #nome>
+            </mat-form-field>
+            </p>
+
+            <p>
+            <mat-form-field>
+                <input matInput placeholder="prioridade" [(ngModel)]="requisito.prioridade"
+                    required name="prioridade" #nome>
+            </mat-form-field>
+            </p>
+    
+            <p>
+            <mat-form-field>
+                <textarea matInput placeholder="codigo" 
+                    required name="codigo" [(ngModel)]="requisito.codigo"></textarea>
+            </mat-form-field>
+            </p>
+
+            <p>
+                <mat-radio-group *ngIf="requisito.href" [(ngModel)]="requisito.concluido" name="concluido">
+                    <mat-radio-button [value] = "0">Em Progresso</mat-radio-button>
+                    <mat-radio-button [value] = "1">Concluido</mat-radio-button>
+                </mat-radio-group>
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!requisitoForm.form.valid">Save</button>
+            <button mat-raised-button color="secondary" (click)="remove(requisito.href)"
+                    *ngIf="requisito.href" type="button">Delete</button>
+            <a mat-button routerLink="/requisito-list">Cancel</a>
+        </mat-card-actions>
+    </mat-card>
+</form>

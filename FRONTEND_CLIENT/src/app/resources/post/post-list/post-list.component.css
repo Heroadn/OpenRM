@@ -1,0 +1,23 @@
+.avatar {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+a { cursor: pointer; }
+
+.pagination {
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+.subhead::first-letter {
+   /*
+   -webkit-initial-letter: 4;
+          initial-letter: 4;
+  color: orange;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-right: .15em;*/
+ }

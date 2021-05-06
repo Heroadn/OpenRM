@@ -1,0 +1,66 @@
+<div *ngIf="error" class="alert alert-warning" role="alert">
+    {{error}}
+</div>
+
+<mat-card>
+    <form #usuarioForm="ngForm" (ngSubmit)="save(usuarioForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{usuario.nome ? 'Edit' : 'Add'}} Usuario</h2></mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <input type="hidden" name="href" [(ngModel)]="usuario.href">
+
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="nome" [(ngModel)]="usuario.nome"
+                  required name="nome" #nome>
+          </mat-form-field>
+        </p>
+
+        <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="senha" [(ngModel)]="usuario.senha"
+                required name="senha" #senha>
+        </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Confirmar senha" [(ngModel)]="usuario.senha_confirmar"
+                  required name="senha_confirmar" #senha>
+          </mat-form-field>
+          </p>
+
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="email" [(ngModel)]="usuario.email"
+                  required name="email" #email>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field >
+            <textarea matInput placeholder="descrição" 
+                  required name="descricao" [(ngModel)]="usuario.descricao">...</textarea>
+          </mat-form-field>
+        </p>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!usuarioForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(usuario.href)"
+                *ngIf="usuario.href" type="button">Delete</button>
+        <a mat-button routerLink="/usuario-list">Cancel</a>
+      </mat-card-actions>
+
+      <mat-card-footer>
+        <div class="giphy">
+          <img src="{{usuario.giphyUrl}}" alt="{{usuario.nome}}">
+        </div>
+      </mat-card-footer>
+
+    </form>
+</mat-card>

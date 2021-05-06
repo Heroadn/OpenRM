@@ -2,7 +2,8 @@
 
 **OpenRM**
 
-    O presente projeto de tem por objetivo o desenvolvimento de uma plataforma de gerenciamento de requisitos
+>* O presente projeto de tem por objetivo o desenvolvimento de uma plataforma de gerenciamento de requisitos,
+
     
 **Configurações e recomendações do projeto:**
 >*   Utilizar um servidor local, no projeto é o framework Java, Springboot.
@@ -10,6 +11,7 @@
 >*   Utilizar ferramenta para versionamento, no projeto é utilizado GIT.
 >*   Utilizar o gerenciador de pacotes do Node(npm) para ter controle das dependências no Frontend(Angular).
 >*   Utilizar um ambiente de trabalho para desenvolvimento, no projeto é utilizado o VSCode
+>*   O projeto de no estado atual continua em beta, podem ter falhas de segurança, ou problemas de desempenho "USE COM CAUTELA".
 
 **Dependências do projeto:**
 >*  JAVA - Backend

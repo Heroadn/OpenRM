@@ -123,7 +123,7 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-			<version>2.3.6.RELEASE</version>
+			<version>2.3.4.RELEASE</version>
 		</dependency>
 
 		<!-- JWT -->
@@ -170,7 +170,7 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-			<version>2.3.6.RELEASE</version>
+			<version>2.3.4.RELEASE</version>
 		</dependency>-->
 
 		<dependency>

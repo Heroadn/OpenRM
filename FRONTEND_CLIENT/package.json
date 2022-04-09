@@ -54,7 +54,7 @@
     "jw-paginate": "^1.0.4",
     "jwt-decode": "^2.2.0",
     "masonry-layout": "^4.2.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-pick-datetime": "^7.0.0",
     "ng-uikit": "^0.1.6",
     "ng-zorro-antd": "^8.5.1",

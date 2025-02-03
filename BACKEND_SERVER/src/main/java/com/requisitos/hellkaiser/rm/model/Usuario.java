@@ -1,16 +1,10 @@
 package com.requisitos.hellkaiser.rm.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.hateoas.ResourceSupport;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.util.*;
 
-import javax.persistence.*;
 
 @Entity
 @Table(name ="usuario")
@@ -32,11 +26,13 @@ public class Usuario extends BaseModel {
 	private LocalDate data_criacao;
 
 	public Usuario(){
+		/*
 		super.setIgnored(
 				Usuario_.I_D,
 				Usuario_.ROLES,
 				Usuario_.DATA_CRIACAO
 		);
+		*/
 	}
 
 	@ManyToMany(cascade=CascadeType.MERGE,fetch = FetchType.EAGER)

@@ -1,19 +1,18 @@
 package com.requisitos.hellkaiser.rm.repository.usuario;
 
 import com.requisitos.hellkaiser.rm.model.Usuario;
-import com.requisitos.hellkaiser.rm.model.Usuario_;
 import com.requisitos.hellkaiser.rm.repository.filter.UsuarioFilter;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,12 +63,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryQuery {
 
         if (!StringUtils.isEmpty(usuarioFilter.nome)) {
             predicates.add(
-                    builder.equal(root.get(Usuario_.NOME),usuarioFilter.nome));
+                    builder.equal(root.get("nome"),usuarioFilter.nome));
         }
 
         if (!StringUtils.isEmpty(usuarioFilter.email)) {
             predicates.add(
-                    builder.equal(root.get(Usuario_.EMAIL),usuarioFilter.email));
+                    builder.equal(root.get("email"),usuarioFilter.email));
         }
 
         return predicates;

@@ -2,12 +2,10 @@ package com.requisitos.hellkaiser.rm.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.hateoas.ResourceSupport;
-
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -52,7 +50,7 @@ public class Projeto extends BaseModel{
     Collection<Post> posts;
 
     public Projeto(){
-        super.setIgnored(Projeto_.I_D, Projeto_.DATA_CRIACAO);
+        //super.setIgnored(Projeto_.I_D, Projeto_.DATA_CRIACAO);
     }
 
     public void addEquipe(Equipe equipe){

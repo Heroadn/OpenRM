@@ -1,12 +1,10 @@
 package com.requisitos.hellkaiser.rm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.hateoas.ResourceSupport;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name ="iteracao")
@@ -25,7 +23,9 @@ public class Iteracao extends BaseModel {
     @OneToMany(mappedBy="iteracao",cascade = CascadeType.ALL, orphanRemoval = true)
     Collection<Requisito> requisitos = new HashSet<>();
 
-    public Iteracao(){ super.setIgnored(Iteracao_.I_D, Iteracao_.PROJETO); }
+    public Iteracao(){
+        //super.setIgnored(Iteracao_.I_D, Iteracao_.PROJETO);
+    }
 
     public void addRequisito(Requisito requisito){ this.requisitos.add(requisito); }
 

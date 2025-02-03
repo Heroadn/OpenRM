@@ -1,10 +1,10 @@
 package com.requisitos.hellkaiser.rm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.hateoas.ResourceSupport;
-
-import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.*;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -32,12 +32,13 @@ public class Post extends BaseModel{
     Collection<Comentario> comentarios;
 
     public Post(){
+        /*
         super.setIgnored(
                 Post_.I_D,
                 Post_.USUARIO,
                 Post_.PROJETO,
                 Post_.DATA_POST
-        );
+        );*/
     }
 
     public void addComentario(Comentario comentario){

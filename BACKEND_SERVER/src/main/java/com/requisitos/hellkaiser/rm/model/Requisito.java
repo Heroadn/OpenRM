@@ -1,9 +1,6 @@
 package com.requisitos.hellkaiser.rm.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.hateoas.ResourceSupport;
-
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name ="requisito")
@@ -29,9 +26,9 @@ public class Requisito extends BaseModel {
     private Iteracao iteracao;
 
     public Requisito(){
-        super.setIgnored(
-                Requisito_.I_D
-        );
+        //super.setIgnored(
+        //        Requisito_.I_D
+        //);
     }
 
     public String getCodigo() {

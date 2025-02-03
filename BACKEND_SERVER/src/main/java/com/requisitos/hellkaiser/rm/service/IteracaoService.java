@@ -16,9 +16,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Service;
 
-import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-
 @Service
 public class IteracaoService extends BasicRestService<Iteracao, IteracaoRepository, IteracaoFilter> {
     @Autowired

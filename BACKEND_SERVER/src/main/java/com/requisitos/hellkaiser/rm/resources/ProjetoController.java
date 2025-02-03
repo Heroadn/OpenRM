@@ -1,30 +1,19 @@
 package com.requisitos.hellkaiser.rm.resources;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.requisitos.hellkaiser.rm.event.RecursoCriadoEvento;
 import com.requisitos.hellkaiser.rm.generic.GenericRestController;
 import com.requisitos.hellkaiser.rm.model.*;
 import com.requisitos.hellkaiser.rm.repository.ProjetoRepository;
 import com.requisitos.hellkaiser.rm.repository.filter.ProjetoFilter;
 import com.requisitos.hellkaiser.rm.security.Token;
 import com.requisitos.hellkaiser.rm.service.ProjetoService;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import java.util.Map;
-
-import static java.lang.Long.parseLong;
 
 @RestController
 @RequestMapping(value = "/projeto", produces = "application/hal+json")
@@ -45,7 +34,7 @@ public class ProjetoController extends GenericRestController<Projeto, ProjetoFil
 
     /*Metodo responsavel por adicionar requisito a projeto*/
     @PostMapping(value = "/{id_projeto}/add-requisito")
-    @ApiOperation(value = "Adicionar um requisto a um projeto")
+    //@ApiOperation(value = "Adicionar um requisto a um projeto")
     ResponseEntity<Requisito> adicionarProjeto(@PathVariable final long id_projeto, @RequestBody Requisito requisito)
     {
         Requisito fromDb = projetoService.adicionarRequisito(id_projeto,requisito);
@@ -54,7 +43,7 @@ public class ProjetoController extends GenericRestController<Projeto, ProjetoFil
 
     /*Metodo responsavel por adicionar iteracao a projeto*/
     @PostMapping(value = "/{id_tarefa}/add-iteracao")
-    @ApiOperation(value = "Adiciona uma iteracao ao projeto")
+    //@ApiOperation(value = "Adiciona uma iteracao ao projeto")
     ResponseEntity<Iteracao> adicionarIteracao(@PathVariable final long id_projeto, @RequestBody Iteracao iteracao)
     {
         Iteracao fromDb = projetoService.adicionarIteracao(id_projeto,iteracao);
@@ -63,11 +52,12 @@ public class ProjetoController extends GenericRestController<Projeto, ProjetoFil
 
     /*Metodo responsavel por adicionar post a projeto*/
     @PostMapping(value = "/{id_projeto}/add-post")
-    @ApiOperation(value = "Adicionar uma iteracao ao projeto")
+    //@ApiOperation(value = "Adicionar uma iteracao ao projeto")
     ResponseEntity<Post> adicionarPost(Authentication auth, @PathVariable final long id_projeto, @RequestBody Post post)
     {
-        OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
-        Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+        //OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
+        //Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+        Token token = null;
 
         Post fromDb = projetoService.adicionarPost(id_projeto,token.id_usuario, post);
         return ResponseEntity.status(HttpStatus.CREATED).body(fromDb);

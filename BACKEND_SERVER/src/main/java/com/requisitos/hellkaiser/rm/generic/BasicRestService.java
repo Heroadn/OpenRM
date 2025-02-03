@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.hateoas.Link;
-import org.springframework.security.core.Authentication;
 
-import java.io.Serializable;
+import java.security.Principal;
 import java.util.Optional;
 
-import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-abstract public class BasicRestService<Model extends BaseModel, Repository extends JpaRepository, Filter>
+abstract public class BasicRestService<
+        Model extends BaseModel,
+        Repository extends JpaRepository, Filter>
         implements RestServiceInterface<Model, Repository, Filter> {
 
     @Autowired
@@ -28,12 +29,12 @@ abstract public class BasicRestService<Model extends BaseModel, Repository exten
     }
 
     @Override
-    public Model save(Model resource, Authentication auth) {
+    public Model save(Model resource, Principal auth) {
         return (Model)repo.save(resource);
     }
 
     @Override
-    public Model update(Model resource, Long id,String... ignoredProperties) {
+    public Model update(Model resource, Long id, String[] ignoredProperties, Principal auth) {
         Model fromDb = get(id);
 
         if(ignoredProperties.length == 0) {
@@ -44,11 +45,13 @@ abstract public class BasicRestService<Model extends BaseModel, Repository exten
     }
 
     @Override
-    public Model delete(Long id) {
+    public Model delete(Long id, Principal auth) {
         Model model = get(id);
         repo.delete(model);
-        return null;
+        return model;
     }
+
+
 
     @Override
     @Deprecated

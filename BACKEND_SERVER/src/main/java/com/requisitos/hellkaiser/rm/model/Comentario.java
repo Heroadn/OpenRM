@@ -1,9 +1,8 @@
 package com.requisitos.hellkaiser.rm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -25,11 +24,13 @@ public class Comentario extends BaseModel {
     private Post post;
 
     public Comentario(){
+        /*
         super.setIgnored(
                 Comentario_.I_D,
                 Comentario_.USUARIO,
                 Comentario_.POST
         );
+        */
     }
 
     public String getTexto() {

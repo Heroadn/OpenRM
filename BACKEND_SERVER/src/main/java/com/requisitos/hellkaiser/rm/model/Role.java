@@ -1,9 +1,8 @@
 package com.requisitos.hellkaiser.rm.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name ="role")
@@ -12,7 +11,7 @@ public class Role extends BaseModel{
     private String nome;
     private String descricao;
 
-    @ManyToMany(mappedBy="roles", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToMany(mappedBy="roles", fetch= FetchType.LAZY, cascade= CascadeType.ALL)
     private Collection<Usuario> usuarios;
 
     public String getNome() {

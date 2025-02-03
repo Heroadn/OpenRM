@@ -1,0 +1,15 @@
+cliente:
+    inexistente: = Cliente não Encontrado
+jwt:
+    invalido: Assinatura Invalida
+mensagem:
+    invalida: Mensagem Invalida
+recurso:
+    nao-encontrado: Recurso não encontrado
+    operacao-nao-permitida: Operação não permitida
+usuario:
+    bad-credentials: '"Verifique a senha e o nome digitados."'
+    email: Email
+    inexistente-ou-inativa: Usuario Inátivo ou Não Encontrado
+    nome: Nome
+    senha: Senha

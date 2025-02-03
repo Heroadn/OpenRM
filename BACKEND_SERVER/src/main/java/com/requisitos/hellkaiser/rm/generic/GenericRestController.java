@@ -2,7 +2,7 @@ package com.requisitos.hellkaiser.rm.generic;
 
 import com.requisitos.hellkaiser.rm.event.RecursoCriadoEvento;
 import com.requisitos.hellkaiser.rm.model.BaseModel;
-import com.requisitos.hellkaiser.rm.resources.UsuarioController;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -13,17 +13,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-
-import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 abstract public class GenericRestController<Model extends BaseModel,Filter,Repository extends JpaRepository,Service extends RestServiceInterface<Model, Repository, Filter>> implements RestControllerInterface<Model, Filter> {
 
-    private Repository repository;
+    public Repository repository;
 
     @Autowired
-    private Service service;
+    public Service service;
 
     @Autowired
     ApplicationEventPublisher publisher;
@@ -55,15 +53,15 @@ abstract public class GenericRestController<Model extends BaseModel,Filter,Repos
 
     @Override
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Model> update(@PathVariable long id, Model model) {
-        Model updated = service.update(model,id);
+    public ResponseEntity<Model> update(@PathVariable long id, Model model, Authentication auth) {
+        Model updated = service.update(model, id, model.getIgnored(), auth);
         return ResponseEntity.status(HttpStatus.CREATED).body(updated);
     }
 
     @Override
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Model> delete(@PathVariable long id) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.delete(id));
+    public ResponseEntity<Model> delete(@PathVariable long id, Authentication auth) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.delete(id, auth));
     }
 }

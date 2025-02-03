@@ -15,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +33,9 @@ public class PostController extends GenericRestController<Post, PostFilter, Post
     /*Metodo responsavel por adicioar a equipe ao projeto*/
     @PostMapping(value = "/{id_post}/add-comentario")
     ResponseEntity<Comentario> adicionarComentario(Authentication auth, @PathVariable final long id_post, @RequestBody Comentario comentario) {
-        OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
-        Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+        //OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
+        //Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+        Token token = null;
 
         Comentario fromDb = postService.adicionarComentario(id_post,token.id_usuario, comentario);
         return ResponseEntity.status(HttpStatus.CREATED).body(fromDb);

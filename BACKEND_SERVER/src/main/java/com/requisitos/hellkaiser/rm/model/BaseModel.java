@@ -2,18 +2,17 @@ package com.requisitos.hellkaiser.rm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.hateoas.ResourceSupport;
+import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashMap;
 
 @MappedSuperclass
-public class BaseModel extends ResourceSupport implements Serializable {
+public class BaseModel extends RepresentationModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false, columnDefinition = "BIGINT")
+    @Column(name = "id", nullable = false, columnDefinition = "BIGINT", unique = true)
     public long ID;
 
     @Transient

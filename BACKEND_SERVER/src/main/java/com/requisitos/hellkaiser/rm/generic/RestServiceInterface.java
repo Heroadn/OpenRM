@@ -4,7 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.hateoas.Link;
-import org.springframework.security.core.Authentication;
+
+import java.security.Principal;
 
 public interface RestServiceInterface<Model, Repository extends JpaRepository, Filter> {
 
@@ -12,11 +13,11 @@ public interface RestServiceInterface<Model, Repository extends JpaRepository, F
 
     Model get(Long id);
 
-    Model save(Model resource, Authentication auth);
+    Model save(Model resource, Principal auth);
 
-    Model update(Model resource, Long id,String... ignoredProperties);
+    Model update(Model resource, Long id, String[] ignoredProperties, Principal auth);
 
-    Model delete(Long id);
+    Model delete(Long id, Principal auth);
 
     Link generateSelfLink(Long id,Class<RestControllerInterface> controller);
 }

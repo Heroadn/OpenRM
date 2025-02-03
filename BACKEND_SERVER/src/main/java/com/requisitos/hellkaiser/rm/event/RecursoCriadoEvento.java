@@ -1,7 +1,6 @@
 package com.requisitos.hellkaiser.rm.event;
 
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationEvent;
 
 public class RecursoCriadoEvento extends ApplicationEvent{

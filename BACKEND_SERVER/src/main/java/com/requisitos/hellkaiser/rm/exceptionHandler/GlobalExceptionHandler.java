@@ -10,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +35,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, erros, headers, HttpStatus.NOT_FOUND, request);
     }
 
+    /*
     @ExceptionHandler(InvalidGrantException.class)
     public ResponseEntity handleInvalidGrantException(InvalidGrantException ex,HttpHeaders headers, WebRequest request) {
         String mensagemUsuario = messageSource.getMessage("usuario.bad-credentials", null, LocaleContextHolder.getLocale());
@@ -43,7 +43,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
 
         return handleExceptionInternal(ex, erros, headers, HttpStatus.NOT_FOUND, request);
-    }
+    }*/
 
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity handleUsernameNotFoundException(EmptyResultDataAccessException ex,HttpHeaders headers, WebRequest request) {

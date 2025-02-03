@@ -17,8 +17,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
-import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @Service
 public class RequisitoService extends BasicRestService<Requisito, RequisitoRepository, RequisitoFilter> {

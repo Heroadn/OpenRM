@@ -1,19 +1,18 @@
 package com.requisitos.hellkaiser.rm.repository.equipe;
 
 import com.requisitos.hellkaiser.rm.model.Equipe;
-import com.requisitos.hellkaiser.rm.model.Equipe_;
 import com.requisitos.hellkaiser.rm.repository.filter.EquipeFilter;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,12 +61,12 @@ public class EquipeRepositoryImpl implements EquipeRepositoryQuery {
 
         if (!StringUtils.isEmpty(equipeFilter.nome)) {
             predicates.add(
-                    builder.equal(root.get(Equipe_.NOME),equipeFilter.nome));
+                    builder.equal(root.get("nome"),equipeFilter.nome));
         }
 
         if (!StringUtils.isEmpty(equipeFilter.projeto)) {
             predicates.add(
-                    builder.equal(root.get(Equipe_.PROJETO),equipeFilter.projeto));
+                    builder.equal(root.get("projeto"),equipeFilter.projeto));
         }
 
         return predicates;

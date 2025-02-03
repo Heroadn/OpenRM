@@ -1,0 +1,72 @@
+hibernate:
+    show_sql: true
+log4j:
+    logger:
+        org:
+            hibernate:
+                SQL: 'debug '
+                type: 'trace '
+logging:
+    level:
+        org.springframework.security: DEBUG
+security:
+    basic:
+        enable: true
+    ignored: /**
+jwt:
+    auth:
+        converter:
+            resource-id: springboot-keycloak-client
+            principal-attribute: preferred_username
+server:
+    port: 8081
+    hostNameResource: localhost
+    hostNameDb:   localhost
+    hostNameAuth: localhost
+spring:
+    datasource:
+        url: jdbc:mariadb://${server.hostNameDb}/${spring.datasource.scheme}${spring.datasource.args}
+        driver-class-name: org.mariadb.jdbc.Driver
+        username: root
+        password: 'root'
+        port: 3306
+        scheme: requisitos_manager_99_5
+        args: ?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    jackson:
+        date-format: dd-MM-yyyy HH:mm:ss
+        deserialization:
+            fail-on-unknown-properties: 'true '
+    jpa:
+        database: MYSQL
+        show-sql: true
+    flyway:
+        enabled: true
+        baselineOnMigrate: true
+        validateOnMigrate: true
+        locations: classpath:db/migration
+    profiles:
+        active: oauth-security
+    thymeleaf:
+        cache: false
+    security:
+        ignored: /**
+        oauth2:
+            client:
+                registration:
+                    keycloak:
+                        client-id: springboot-keycloak-client
+                        auth-server-url: http://${server.hostNameAuth}:8080/auth
+                        server-url: http://${server.hostNameAuth}:8080
+                        authorization-grant-type: authorization_code
+                        realm: SpringBootKeycloak
+                        username: user
+                        password: user
+                        scope: openid
+                        bearer-only: true
+                provider:
+                    keycloak:
+                        issuer-uri: ${spring.security.oauth2.client.registration.keycloak.server-url}/realms/SpringBootKeycloak
+            resourceserver:
+                jwt:
+                    issuer-uri: ${spring.security.oauth2.client.registration.keycloak.server-url}/realms/SpringBootKeycloak
+                    jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs

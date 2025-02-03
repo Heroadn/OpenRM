@@ -12,18 +12,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.lang.Long.parseLong;
-import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 public class ProjetoService extends BasicRestService<Projeto, ProjetoRepository, ProjetoFilter> {
@@ -52,7 +50,7 @@ public class ProjetoService extends BasicRestService<Projeto, ProjetoRepository,
 
     //adicionarIteracao
     @Override
-    public Projeto save(Projeto projeto, Authentication auth){
+    public Projeto save(Projeto projeto, Principal auth){
        Projeto fromDb = projetoRepository.save(projeto);
        Usuario usuario = usuarioRepository.findById(getTokenFromLoggedUser(auth).id_usuario).get();
 
@@ -90,7 +88,13 @@ public class ProjetoService extends BasicRestService<Projeto, ProjetoRepository,
 
     public Projeto buscarProjetoPorId(long id){ return get(id); }
 
-    public Projeto projetoAtualizar(Projeto projeto, long id){ return update(projeto, id,"id_projeto","data_criacao"); }
+    public Projeto projetoAtualizar(Projeto projeto, long id, Authentication auth){
+        return update(
+                projeto,
+                id,
+                new String[]{"id_projeto","data_criacao"},
+                auth);
+    }
 
     public Link generateLink(long id){ return linkTo(methodOn(ProjetoController.class).findById(id)).withSelfRel(); }
 
@@ -141,9 +145,10 @@ public class ProjetoService extends BasicRestService<Projeto, ProjetoRepository,
         return post;
     }
 
-    public Token getTokenFromLoggedUser(Authentication auth){
-        OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
-        Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+    public Token getTokenFromLoggedUser(Principal auth){
+        //OAuth2AuthenticationDetails oauthDetails = (OAuth2AuthenticationDetails) auth.getDetails();
+        //Token token = decodedDetailsToToken((Map<String, Object>) oauthDetails.getDecodedDetails());
+        Token token = null;
         return token;
     }
 

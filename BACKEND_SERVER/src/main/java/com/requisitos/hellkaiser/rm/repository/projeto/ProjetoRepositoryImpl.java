@@ -1,19 +1,18 @@
 package com.requisitos.hellkaiser.rm.repository.projeto;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.springframework.data.domain.PageImpl;
 import com.requisitos.hellkaiser.rm.model.Projeto;
-import com.requisitos.hellkaiser.rm.model.Projeto_;
 import com.requisitos.hellkaiser.rm.repository.filter.ProjetoFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,8 +61,9 @@ public class ProjetoRepositoryImpl implements ProjetoRepositoryQuery {
         ArrayList<Predicate> predicates= new ArrayList<Predicate>();
 
         if (!StringUtils.isEmpty(projetoFilter.nome)) {
+            //Projeto_.nome
             predicates.add(
-                    builder.equal(root.get(Projeto_.nome),projetoFilter.nome));
+                    builder.equal(root.get("nome"),projetoFilter.nome));
         }
 
         return predicates;

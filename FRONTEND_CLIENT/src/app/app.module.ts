@@ -12,7 +12,8 @@ import { AppComponent }    from './app.component';
 import { DragulaModule } from 'ng2-dragula';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxEditorModule } from 'ngx-editor';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { ContextMenuModule } from '@ctrl/ngx-rightclick';
@@ -126,7 +127,7 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     MatPaginatorModule,
     UiModule,
     NgxEditorModule, 
-    AngularFontAwesomeModule,
+    FontAwesomeModule,
     NgxMasonryModule,
     NgZorroAntdModule,
     ContextMenuModule,

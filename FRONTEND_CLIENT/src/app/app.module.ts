@@ -17,7 +17,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { ContextMenuModule } from '@ctrl/ngx-rightclick';
-import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { UsuarioListComponent }  from './resources/usuario/usuario-list/usuario-list.component';
 import { UsuarioEditComponent }  from './resources/usuario/usuario-edit/usuario-edit.component';
@@ -135,6 +135,7 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     OwlNativeDateTimeModule,
     OwlTimerModule,
     ShContextMenuModule,
+    MatDatepickerModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot() ,
     AlertModule.forRoot(),

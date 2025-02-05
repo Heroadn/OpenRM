@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "RM-Frontend"
+  "defaultProject": "RM-Frontend",
+  "cli": {
+    "analytics": false
+  }
 }

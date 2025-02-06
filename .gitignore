@@ -32,3 +32,4 @@ BACKEND_SERVER/.idea/misc.xml
 BACKEND_SERVER/.idea/modules.xml
 BACKEND_SERVER/.idea/jarRepositories.xml
 BACKEND_SERVER/.idea/compiler.xml
+FRONTEND_CLIENT/package-lock.json

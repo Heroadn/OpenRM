@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DateTimeAdapter } from 'ng-pick-datetime';
-import { NativeDateAdapter, MatDateFormats } from '@angular/material';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { NativeDateAdapter, MatDateFormats } from '@angular/material/core';
 
 export class CustomDateAdapter extends NativeDateAdapter{
     format(date: Date, displayFormat: Object): string {

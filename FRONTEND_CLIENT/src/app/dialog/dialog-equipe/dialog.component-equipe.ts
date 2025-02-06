@@ -1,4 +1,4 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject } from '@angular/core';
 import { EquipeService } from 'src/app/shared/equipe/equipe.service';
 import { GiphyService } from 'src/app/shared/giphy/giphy.service';

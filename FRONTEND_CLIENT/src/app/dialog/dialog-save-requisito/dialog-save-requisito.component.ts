@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UsuarioService } from 'src/app/shared/usuario/usuario.service';
 import { GiphyService } from 'src/app/shared/giphy/giphy.service';
 

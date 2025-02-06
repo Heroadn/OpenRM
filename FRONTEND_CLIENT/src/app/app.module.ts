@@ -2,27 +2,38 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatRadioModule, MatDialogModule , MatPaginatorModule, MatGridListModule, MAT_DATE_LOCALE} from '@angular/material';
-import { MatDatepickerModule, MatNativeDateModule, MatSidenavModule} from '@angular/material';
+
+// MAT_DATE_LOCALE for Datepicker localization
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input'; // Needed for datepicker input
+import { MatButtonModule } from '@angular/material/button';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }     from '@angular/forms';
-import { ParticlesModule } from 'angular-particle';
+import { NgParticlesModule } from 'ng-particles';
 import { MatIconModule }   from '@angular/material/icon';
 import { AppComponent }    from './app.component';
 import { DragulaModule } from 'ng2-dragula';
-import { JwPaginationComponent } from 'jw-angular-pagination';
-import { NgxEditorModule } from 'ngx-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { NgxMasonryModule } from 'ngx-masonry';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { ContextMenuModule } from '@ctrl/ngx-rightclick';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { UsuarioListComponent }  from './resources/usuario/usuario-list/usuario-list.component';
 import { UsuarioEditComponent }  from './resources/usuario/usuario-edit/usuario-edit.component';
 import { UsuarioLoginComponent } from './resources/usuario/usuario-login/usuario-login.component';
-import { ShContextMenuModule } from 'ng2-right-click-menu'
 
 import { EquipeListComponent  } from './resources/equipe/equipe-list/equipe-list.component';
 import { EquipeEditComponent  } from './resources/equipe/equipe-edit/equipe-edit.component';
@@ -100,7 +111,6 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     ComentarioEditComponent,
     MeusComentariosComponent,
     MeusPostsComponent,
-    JwPaginationComponent,
     HexagonComponent,
     IteracaoMenuComponent
   ],
@@ -116,7 +126,7 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     MatToolbarModule,
     MatRadioModule,
     FormsModule,
-    ParticlesModule,
+    NgParticlesModule,
     MatIconModule,
     MatDialogModule,
     MatDatepickerModule,
@@ -126,15 +136,10 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     MatSidenavModule,
     MatPaginatorModule,
     UiModule,
-    NgxEditorModule, 
     FontAwesomeModule,
     NgxMasonryModule,
-    NgZorroAntdModule,
-    ContextMenuModule,
-    OwlDateTimeModule, 
-    OwlNativeDateTimeModule,
+    ContextMenuModule, 
     OwlTimerModule,
-    ShContextMenuModule,
     MatDatepickerModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot() ,

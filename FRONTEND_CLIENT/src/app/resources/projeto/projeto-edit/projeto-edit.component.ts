@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { MatDialog, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 import { EquipeService } from '../../../shared/equipe/equipe.service';
 import { ProjetoService } from '../../../shared/projeto/projeto.service';
@@ -12,7 +13,6 @@ import { DialogEquipeComponent } from '../../../dialog/dialog-equipe/dialog.comp
 import { DialogRequisitoComponent } from '../../../dialog/dialog-requisito/dialog-requisito.component';
 import { RequisitoService } from 'src/app/shared/requisito/requisito.service';
 import { QuoteService } from 'src/app/shared/quote/quote.service';
-import { DateTimeAdapter } from 'ng-pick-datetime';
 import { APP_DATE_FORMATS, CustomDateAdapter } from 'src/app/shared/custom/CustomDateAdapter';
 
 @Component({
@@ -42,7 +42,7 @@ export class ProjetoEditComponent implements OnInit, OnDestroy {
               private requisitoService:  RequisitoService,
               private quoteService:      QuoteService,
               private giphyService:      GiphyService,
-              private dateTimeAdapter: DateTimeAdapter<any>) {
+              private dateTimeAdapter: DateAdapter<any>) {
   }
 
   ngOnInit() {

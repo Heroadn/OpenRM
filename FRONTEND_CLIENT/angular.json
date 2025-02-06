@@ -28,7 +28,6 @@
               "./node_modules/dragula/dist/dragula.css",
               "./node_modules/font-awesome/css/font-awesome.css",
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "./node_modules/ng-pick-datetime/assets/style/picker.min.css",
               "./node_modules/owl-ng/assets/style/theme.min.css",
               "src/styles.css"
             ],

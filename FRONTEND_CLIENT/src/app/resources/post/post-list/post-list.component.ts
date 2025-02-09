@@ -8,9 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PostListComponent{
   @Input() posts: Array<any>;
   @Input() projeto: any = {}
-  pageOfItems: Array<any>;
   @Output('post') postSelecionado = new EventEmitter<any>();
   @Output('comentario') comentarioSelecionado = new EventEmitter<any>();
+  pageOfItems: Array<any>;
+  currentPage = 1;
 
   onChangePage(pageOfItems: Array<any>) {
     this.pageOfItems = pageOfItems;

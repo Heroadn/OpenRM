@@ -14,14 +14,21 @@
           </mat-form-field>
         </p>
 
-        <app-ngx-editor name="texto" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="post.texto"></app-ngx-editor>
+        <ngx-editor required 
+                name="texto" 
+                [placeholder]="'Enter text here...'" 
+                [spellcheck]="true" 
+                [(ngModel)]="post.texto"></ngx-editor>
       </mat-card-content>
 
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit"
                 [disabled]="!postForm.form.valid">Save</button>
-        <button mat-raised-button color="secondary" (click)="remove(post.href)"
-                *ngIf="post.href" type="button">Delete</button>
+        <button mat-raised-button 
+                color="secondary" 
+                (click)="remove(post.href)"
+                *ngIf="post.href" 
+                type="button">Delete</button>
         <a mat-button routerLink="/post-list/projeto.ID">Cancel</a>
       </mat-card-actions>
 

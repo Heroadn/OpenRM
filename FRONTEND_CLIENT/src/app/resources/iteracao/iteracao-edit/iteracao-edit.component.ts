@@ -5,7 +5,7 @@ import { IteracaoService } from '../../../shared/iteracao/iteracao.service';
 import { GiphyService } from '../../../shared/giphy/giphy.service';
 import { NgForm } from '@angular/forms';
 import { RequisitoService } from '../../../shared/requisito/requisito.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRequisitoComponent } from 'src/app/dialog/dialog-requisito/dialog-requisito.component';
 import { TarefaService } from 'src/app/shared/tarefa/tarefa.service';
 import { ProjetoService } from 'src/app/shared/projeto/projeto.service';

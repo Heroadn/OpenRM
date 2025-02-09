@@ -3,5 +3,11 @@
 <app-comentario-edit (comentario)  = "get($event,post);" [post]="post"></app-comentario-edit>
 
 <div class="card-footer pb-0 pt-3">
-    <jw-pagination [items]="comentarios" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+    <!--<jw-pagination [items]="comentarios" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>-->
+    <pagination-controls 
+            previousLabel="Prev"
+            nextLabel="Next" 
+            maxSize="4" 
+            [responsive]="true"
+            (pageChange)="onChangePage($event)"></pagination-controls>
 </div>

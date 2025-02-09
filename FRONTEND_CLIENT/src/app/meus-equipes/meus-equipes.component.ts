@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../shared/equipe/equipe.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
-import { PageEvent } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 
 @Component({

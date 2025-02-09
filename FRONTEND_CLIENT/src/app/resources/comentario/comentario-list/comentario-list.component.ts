@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-comentario-list',

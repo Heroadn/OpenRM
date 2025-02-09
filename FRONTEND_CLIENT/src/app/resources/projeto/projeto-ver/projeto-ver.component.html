@@ -11,11 +11,12 @@
                 </div>
                 
                 <div class="col-md-2 col-sm-12">
-                    <a class="gear" mat-button [routerLink]="['/projeto-edit', projeto.ID]"><fa size="2x" name="cog"></fa></a>
+                    <a class="gear" mat-button [routerLink]="['/projeto-edit', projeto.ID]"><fa-icon size="2x" [icon]="['fas', 'cog']"></fa-icon></a>
                 </div>  
             </div>
 
-            <owl-timer *ngIf="days | async" [timerDays]="days | async" [timerHours]="hours | async" [timerMinutes]="minutes | async" [timerSeconds]="seconds | async"></owl-timer>
+            <!--
+            <owl-timer *ngIf="days | async" [timerDays]="days | async" [timerHours]="hours | async" [timerMinutes]="minutes | async" [timerSeconds]="seconds | async"></owl-timer>-->
             <p [innerHtml]='projeto.objetivo'></p>
         </mat-card-content>
 </mat-card>

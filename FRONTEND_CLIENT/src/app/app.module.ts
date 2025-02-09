@@ -22,13 +22,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }     from '@angular/forms';
-import { NgParticlesModule } from 'ng-particles';
 import { MatIconModule }   from '@angular/material/icon';
 import { AppComponent }    from './app.component';
 import { DragulaModule } from 'ng2-dragula';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 import { NgxMasonryModule } from 'ngx-masonry';
+import { NgxEditorModule } from 'ngx-editor';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { ContextMenuModule } from '@ctrl/ngx-rightclick';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { UsuarioListComponent }  from './resources/usuario/usuario-list/usuario-list.component';
@@ -73,9 +75,10 @@ import { ComentarioEditComponent } from './resources/comentario/comentario-edit/
 import { MeusComentariosComponent } from './meus-comentarios/meus-comentarios.component';
 import { MeusPostsComponent } from './meus-posts/meus-posts.component';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { OwlTimerModule } from 'owl-ng';
 import { HexagonComponent } from './hexagon/hexagon.component';
 import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.component';
+
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -126,7 +129,7 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     MatToolbarModule,
     MatRadioModule,
     FormsModule,
-    NgParticlesModule,
+    RouterModule,
     MatIconModule,
     MatDialogModule,
     MatDatepickerModule,
@@ -138,8 +141,9 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     UiModule,
     FontAwesomeModule,
     NgxMasonryModule,
+    NgxEditorModule,
+    NgxPaginationModule,
     ContextMenuModule, 
-    OwlTimerModule,
     MatDatepickerModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot() ,
@@ -150,7 +154,14 @@ import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.compon
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  entryComponents: [DialogEquipeComponent,DialogUsuarioComponent,DialogRequisitoComponent,DialogSaveRequisitoComponent,DialogSaveIteracaoComponent,IteracaoMenuComponent],
+  entryComponents: [
+    DialogEquipeComponent,
+    DialogUsuarioComponent,
+    DialogRequisitoComponent,
+    DialogSaveRequisitoComponent,
+    DialogSaveIteracaoComponent,
+    IteracaoMenuComponent
+  ],
   bootstrap: [AppComponent]
 })
 

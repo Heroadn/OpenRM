@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequisitoService } from '../shared/requisito/requisito.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
-import { PageEvent } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-meus-requisitos',

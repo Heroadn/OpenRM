@@ -10,6 +10,7 @@ export class MeusComentariosComponent implements OnInit {
   comentarios: Array<any>;
   pageOfItems: Array<any>;
   post:any = {}
+  currentPage = 1;
 
   constructor() { }
 

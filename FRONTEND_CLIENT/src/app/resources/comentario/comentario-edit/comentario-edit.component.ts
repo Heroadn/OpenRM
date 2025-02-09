@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ProjetoService } from 'src/app/shared/projeto/projeto.service';
 import { EquipeService } from 'src/app/shared/equipe/equipe.service';
 import { RequisitoService } from 'src/app/shared/requisito/requisito.service';

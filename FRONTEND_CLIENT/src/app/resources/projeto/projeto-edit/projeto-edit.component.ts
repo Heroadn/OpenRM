@@ -13,7 +13,7 @@ import { DialogEquipeComponent } from '../../../dialog/dialog-equipe/dialog.comp
 import { DialogRequisitoComponent } from '../../../dialog/dialog-requisito/dialog-requisito.component';
 import { RequisitoService } from 'src/app/shared/requisito/requisito.service';
 import { QuoteService } from 'src/app/shared/quote/quote.service';
-import { APP_DATE_FORMATS, CustomDateAdapter } from 'src/app/shared/custom/CustomDateAdapter';
+
 
 @Component({
   selector: 'app-projeto-edit',

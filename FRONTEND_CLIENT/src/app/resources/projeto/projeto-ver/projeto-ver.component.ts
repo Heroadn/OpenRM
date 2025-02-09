@@ -6,8 +6,10 @@ import { RequisitoService } from 'src/app/shared/requisito/requisito.service';
 import { GiphyService } from 'src/app/shared/giphy/giphy.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import * as moment from 'moment';
-import {Observable} from 'rxjs/Rx';
-import { async } from 'q';
+import { Observable} from 'rxjs/Rx';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
 
 @Component({
   selector: 'app-projeto-ver',
@@ -32,7 +34,13 @@ export class ProjetoVerComponent implements OnInit {
     private projetoService:    ProjetoService,
     private equipeService:     EquipeService,
     private requisitoService:  RequisitoService,
-    private giphyService:      GiphyService) { }
+    private giphyService:      GiphyService,
+    private library:           FaIconLibrary) 
+    {
+      library.addIcons(
+        faCog,
+      );
+    }
 
   ngOnInit() {
     this.tempo = new Date()

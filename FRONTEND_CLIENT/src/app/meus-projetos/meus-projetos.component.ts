@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../shared/projeto/projeto.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
-import { PageEvent } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth/auth.service';
 import { UsuarioService } from '../shared/usuario/usuario.service';

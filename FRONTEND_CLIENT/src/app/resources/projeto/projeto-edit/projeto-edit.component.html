@@ -40,7 +40,11 @@
     
             <p> 
                 <mat-label>Objetivo</mat-label>
-                <app-ngx-editor required name="objetivo" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="projeto.objetivo"></app-ngx-editor>
+                <ngx-editor required 
+                name="objetivo" 
+                [placeholder]="'Enter text here...'" 
+                [spellcheck]="true" 
+                [(ngModel)]="projeto.objetivo"></ngx-editor>
             </p>
         </mat-card-content>
 

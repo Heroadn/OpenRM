@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { IteracaoService } from '../../../shared/iteracao/iteracao.service';
 import { GiphyService } from '../../../shared/giphy/giphy.service';
 import { DragulaService } from 'ng2-dragula';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogSaveRequisitoComponent } from 'src/app/dialog/dialog-save-requisito/dialog-save-requisito.component';
 import { DialogSaveIteracaoComponent } from 'src/app/dialog/dialog-save-iteracao/dialog-save-iteracao.component';
 import { IteracaoMenuComponent } from 'src/app/menu/iteracao-menu/iteracao-menu.component';

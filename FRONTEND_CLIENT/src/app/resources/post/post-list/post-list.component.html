@@ -15,7 +15,18 @@
           <app-comentario-edit (comentario)  = "get($event,post);" [post]="post"></app-comentario-edit>
           
           <div class="card-footer pb-0 pt-3">
-            <jw-pagination [items]="post.comentarios" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+            <ul>
+              <li *ngFor="let item of post.comentarios | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+                {{ item }}
+              </li>
+            </ul>
+
+            <pagination-controls 
+            previousLabel="Prev"
+            nextLabel="Next" 
+            maxSize="4" 
+            [responsive]="true"
+            (pageChange)="onChangePage($event)"></pagination-controls>
           </div>
         </div>
       </div>

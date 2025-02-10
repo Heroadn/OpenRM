@@ -62,8 +62,8 @@ public class UsuarioController extends GenericRestController<Usuario,UsuarioFilt
     /**
      * Increment a value by delta and return the new value.
      *
-     * @param  auth    token jwt de acesso
-     * @return         access token usado para acessar apis com login
+     * @param  principal token jwt de acesso
+     * @return           access token usado para acessar apis com login
      */
     @GetMapping(value = "/meu-usuario")
     public ResponseEntity<Usuario> meuUsuario(

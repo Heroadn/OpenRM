@@ -6,7 +6,7 @@ import { RequisitoService } from 'src/app/shared/requisito/requisito.service';
 import { GiphyService } from 'src/app/shared/giphy/giphy.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import * as moment from 'moment';
-import { Observable} from 'rxjs/';
+import { Observable} from 'rxjs';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 

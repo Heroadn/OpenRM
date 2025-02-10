@@ -74,7 +74,7 @@ import { ComentarioListComponent } from './resources/comentario/comentario-list/
 import { ComentarioEditComponent } from './resources/comentario/comentario-edit/comentario-edit.component';
 import { MeusComentariosComponent } from './meus-comentarios/meus-comentarios.component';
 import { MeusPostsComponent } from './meus-posts/meus-posts.component';
-import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HexagonComponent } from './hexagon/hexagon.component';
 import { IteracaoMenuComponent } from './menu/iteracao-menu/iteracao-menu.component';
 
@@ -146,7 +146,6 @@ import { RouterModule } from '@angular/router';
     ContextMenuModule, 
     MatDatepickerModule,
     BsDatepickerModule.forRoot(),
-    DatepickerModule.forRoot() ,
     AlertModule.forRoot(),
     DragulaModule.forRoot()
   ],

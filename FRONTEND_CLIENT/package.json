@@ -36,10 +36,10 @@
     "@fortawesome/angular-fontawesome": "^0.10.0",
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@nebular/theme": "^9.0.0",
     "@nebular/auth": "^9.0.0",
-    "@nebular/security": "^9.0.0",
     "@nebular/eva-icons": "^9.0.0",
+    "@nebular/security": "^9.0.0",
+    "@nebular/theme": "^9.0.0",
     "angular-bootstrap-contextmenu": "^1.2.1",
     "angular-bootstrap-datetimepicker": "^4.0.2",
     "angular-masonry": "^0.17.0",
@@ -60,11 +60,12 @@
     "ngx-material-timepicker": "^5.2.2",
     "ngx-pagination": "^5.1.1",
     "ngx-smart-modal": "^7.2.1",
-    "rxjs": "^7.0.0",
+    "rxjs": "^7.5.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^13.3.11",
     "@angular/cli": "~13.3.11",
     "@angular/compiler-cli": "~13.4.0",
     "@angular/language-service": "~13.4.0",
@@ -86,6 +87,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.4.3"
+    "typescript": "^4.4.3"
   }
 }

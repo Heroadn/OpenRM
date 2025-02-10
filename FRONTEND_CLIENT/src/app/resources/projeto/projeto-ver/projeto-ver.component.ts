@@ -6,7 +6,7 @@ import { RequisitoService } from 'src/app/shared/requisito/requisito.service';
 import { GiphyService } from 'src/app/shared/giphy/giphy.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import * as moment from 'moment';
-import { Observable} from 'rxjs/Rx';
+import { Observable} from 'rxjs/';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
@@ -91,17 +91,24 @@ export class ProjetoVerComponent implements OnInit {
   createClock(time){
     const orderDate: number = moment(time, 'YYYY-MM-DD HH:mm:ss').valueOf();
 
-    this.clock = Observable
-      .interval(1000)
-      .map(() => {
-        return  orderDate - Date.now();
-      }).map((millis: number) => {
-        return moment.duration(millis);
-      }).publishReplay(1).refCount();
+    this.clock = new Observable((subscriber) => 
+    {
+      subscriber.next(1);
+      subscriber.next(2);
+      subscriber.next(3);
+      setTimeout(() => {
+        subscriber.next(4);
+        subscriber.complete();
+      }, 1000);
+      setInterval(() => {
+        var elapsed = orderDate - Date.now()
+        moment.duration(elapsed)
+      }, 1000);
+    });
 
-      this.days    = this.clock.map(date => date.days());
-      this.hours   = this.clock.map(date => date.hours());
-      this.minutes = this.clock.map(date => date.minutes());
-      this.seconds = this.clock.map(date => date.seconds());
+    //this.days    = this.clock.map(date => date.days());
+    //this.hours   = this.clock.map(date => date.hours());
+    //this.minutes = this.clock.map(date => date.minutes());
+    //this.seconds = this.clock.map(date => date.seconds());
   }
 }
